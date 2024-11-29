@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FoodFlex</title>
+	<!-- Enlace a Bootstrap CSS -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Enlace a estilos personalizados -->
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+	<!-- Barra de navegación -->
+	<nav class="navbar navbar-expand-lg custom-navbar">
+		<a class="navbar-brand" href="/">
+			<img src="/images/2.png" alt="FoodFlex Logo" height="70">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+				<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+				<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link" href="/carrito">Carrito</a></li>
+				<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Sección de Acerca de -->
+	<div class="container mt-4 mb-5">
+		<h1 class="text-center mb-4">Acerca de</h1>
+		<div class="row">
+			<!-- Descripción General -->
+			<div class="col-md-6 d-flex align-items-stretch">
+				<div class="card shadow h-100">
+					<div class="card-body">
+						<h3 class="card-title">Descripción General</h3>
+						<p>
+							El sistema de pedidos en línea multi-restaurante permite a los usuarios (clientes,
+							restaurantes y administradores) interactuar con la plataforma de manera sencilla y eficiente
+							para gestionar pedidos, productos y usuarios. Este software está diseñado para optimizar la
+							administración de restaurantes y facilitar el proceso de compra para los clientes.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Funcionalidades Generales -->
+			<div class="col-md-6 d-flex align-items-stretch">
+				<div class="card shadow h-100">
+					<div class="card-body">
+						<h3 class="card-title">Funcionalidades Generales</h3>
+						<ul>
+							<li>Gestión de usuarios: Registro, autenticación y asignación de roles.</li>
+							<li>Visualización de productos: Permite a los clientes navegar por los menús disponibles.
+							</li>
+							<li>Carrito de compras: Los clientes pueden añadir productos y proceder a su compra.</li>
+							<li>Gestión de pedidos: Restaurantes y administradores pueden gestionar pedidos en tiempo
+								real.</li>
+							<li>Administración de datos: Gestión centralizada de categorías, productos y usuarios.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h2 class="text-center mt-5">Roles del Sistema</h2>
+		<div class="row mt-3">
+			<!-- Administradores -->
+			<div class="col-md-4 d-flex align-items-stretch">
+				<div class="card shadow h-100">
+					<div class="card-body">
+						<h3 class="card-title">Administradores</h3>
+						<ul>
+							<li>Registrar nuevos administradores.</li>
+							<li>Gestionar categorías de productos.</li>
+							<li>Gestionar restaurantes.</li>
+							<li>Gestionar clientes.</li>
+							<li>Supervisar y gestionar órdenes.</li>
+							<li>Gestionar la lista de comidas.</li>
+						</ul>
+						<p><strong>Usuario:</strong> admin</p>
+						<p><strong>Contraseña:</strong> admin123</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Restaurante -->
+			<div class="col-md-4 d-flex align-items-stretch">
+				<div class="card shadow h-100">
+					<div class="card-body">
+						<h3 class="card-title">Restaurante</h3>
+						<ul>
+							<li>Editar información del restaurante.</li>
+							<li>Gestionar comidas (añadir, editar, eliminar).</li>
+							<li>Supervisar y gestionar pedidos asignados.</li>
+						</ul>
+						<p><strong>Usuario:</strong> restaurante1</p>
+						<p><strong>Contraseña:</strong> comida123</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Clientes -->
+			<div class="col-md-4 d-flex align-items-stretch">
+				<div class="card shadow h-100">
+					<div class="card-body">
+						<h3 class="card-title">Clientes</h3>
+						<ul>
+							<li>Editar información personal.</li>
+							<li>Ver y supervisar pedidos realizados.</li>
+							<li>Añadir productos al carrito de compras.</li>
+							<li>Proceder al pago de los pedidos.</li>
+						</ul>
+						<p><strong>Usuario:</strong> cliente1</p>
+						<p><strong>Contraseña:</strong> cliente123</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h2 class="text-center my-4"></h2>
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<div class="card shadow p-4">
+					<div class="card-body">
+						<h3 class="card-title">Conexión a la Base de Datos</h3>
+						<p>
+							El sistema utiliza MongoDB como base de datos para almacenar y gestionar los datos del
+							sistema.
+						</p>
+						<p><strong>URL de Conexión:</strong></p>
+						<p>mongodb+srv://wendy:wendy123@servidorwendy.adurc.mongodb.net/Restaurante</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-3">
+		<p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+		<ul class="list-inline">
+			<li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+			<li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+			<li class="list-inline-item"><a href="/login" class="text-white">Login</a></li>
+		</ul>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

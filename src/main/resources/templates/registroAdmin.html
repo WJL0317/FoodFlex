@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registrar Administradores</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/registrarAdmin.css">
+</head>
+
+<body>
+	<!-- Barra de navegación -->
+	<nav class="navbar navbar-expand-lg custom-navbar">
+		<a class="navbar-brand" href="/">
+			<img src="/images/2.png" alt="FoodFlex Logo" height="70">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/login/inicioAdmin">Inicio Admin</a></li>
+				<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+				<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link btn btn-danger text-white" href="/login/cerrarSesion">Cerrar
+						Sesión</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Contenido principal -->
+	<main class="my-5">
+		<div class="card shadow">
+			<div class="card-header text-center bg-primary text-white">
+				<h2>Registrar Nuevo Administrador</h2>
+			</div>
+			<div class="card-body">
+				<form id="registroAdminForm" method="POST" action="/usuarios">
+					<div class="form-group">
+						<label for="nombre">Nombre</label>
+						<input type="text" class="form-control" id="nombre" name="nombre"
+							placeholder="Ingresa el nombre" required>
+					</div>
+					<div class="form-group">
+						<label for="email">Correo Electrónico</label>
+						<input type="email" class="form-control" id="email" name="email"
+							placeholder="Ingresa el correo electrónico" required>
+					</div>
+					<div class="form-group">
+						<label for="telefono">Teléfono</label>
+						<input type="text" class="form-control" id="telefono" name="telefono"
+							placeholder="Ingresa el teléfono" required>
+					</div>
+					<div class="form-group">
+						<label for="usuario">Usuario</label>
+						<input type="text" class="form-control" id="usuario" name="usuario"
+							placeholder="Crea un usuario" required>
+					</div>
+					<div class="form-group">
+						<label for="contrasena">Contraseña</label>
+						<input type="password" class="form-control" id="contrasena" name="contrasena"
+							placeholder="Crea una contraseña" required>
+					</div>
+					<input type="hidden" name="rol" value="Admin">
+					<button type="submit" class="btn btn-primary btn-block">Registrar Administrador</button>
+				</form>
+			</div>
+		</div>
+		<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="successModalLabel">Registro Exitoso</h5>
+					</div>
+					<div class="modal-body">
+						El administrador ha sido registrado correctamente.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="redirigirInicioAdmin()">Ir a
+							Inicio</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center">
+		<p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+		<ul class="list-inline">
+			<li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+			<li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+		</ul>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script>
+		function redirigirInicioAdmin() {
+			window.location.href = '/login/inicioAdmin'; // Redirige al inicio del administrador
+		}
+
+		// Mostrar modal después de un envío exitoso
+		document.getElementById('registroAdminForm').addEventListener('submit', function (event) {
+			event.preventDefault(); // Previene el comportamiento normal del formulario
+
+			const form = event.target;
+			fetch(form.action, {
+				method: 'POST',
+				body: new FormData(form)
+			})
+				.then(response => {
+					if (response.ok) {
+						// Mostrar el modal de éxito
+						const modal = new bootstrap.Modal(document.getElementById('successModal'));
+						modal.show();
+					} else {
+						alert('Error al registrar el administrador. Por favor, intente de nuevo.');
+					}
+				})
+				.catch(error => {
+					console.error('Error:', error);
+					alert('Ocurrió un error inesperado.');
+				});
+		});
+	</script>
+</body>
+
+</html>

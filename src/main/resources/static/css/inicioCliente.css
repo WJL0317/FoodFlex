@@ -1,0 +1,62 @@
+html, body {
+    height: 100%; /* Asegura que el documento y el cuerpo ocupen toda la altura */
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Asegura una estructura vertical */
+}
+
+.page-container {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#catalogo {
+    flex-grow: 1; /* Permite que el catálogo crezca dinámicamente */
+}
+
+footer {
+    background-color: #343a40; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centrar texto */
+    padding: 20px 0; /* Espaciado interno */
+    width: 100%; /* Asegura que abarque todo el ancho */
+    position: relative; /* Permite que el footer esté en flujo */
+    bottom: 0; /* Asegura que esté en la parte inferior */
+    left: 0;
+}
+
+footer p {
+    margin: 0; /* Elimina márgenes del texto */
+}
+
+footer .list-inline-item a {
+    color: white; /* Enlaces blancos */
+    text-decoration: none; /* Sin subrayado */
+}
+
+footer .list-inline-item a:hover {
+    text-decoration: underline; /* Subraya enlaces al pasar el mouse */
+}
+
+.container.my-5 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2.text-center.mb-4 {
+    margin-bottom: 0.5rem; /* Reduce el margen inferior del título "Panel de Cliente" */
+}
+
+h3.text-center.mb-4 {
+    margin-top: 0.5rem; /* Reduce el margen superior del título "Catálogo de Comida" */
+    margin-bottom: 0.5rem; /* Reduce el margen inferior del título */
+}
+
+#catalogo .container.my-4 {
+    margin-top: 0; /* Elimina el margen superior del contenedor de búsqueda */
+    margin-bottom: 0; /* Elimina el margen inferior del contenedor de búsqueda */
+}
+

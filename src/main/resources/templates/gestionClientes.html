@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gestión de Clientes</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/inicioAdmin.css">
+</head>
+
+<body>
+	<!-- Barra de navegación -->
+	<nav class="navbar navbar-expand-lg custom-navbar">
+		<a class="navbar-brand" href="/login/inicioAdmin">
+			<img src="/images/2.png" alt="FoodFlex Logo" height="70">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/login/inicioAdmin">Inicio</a></li>
+				<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+				<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link btn btn-danger text-white" href="/login/cerrarSesion">Cerrar
+						Sesión</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Contenido principal -->
+	<div class="container my-5">
+		<h2 class="text-center mb-4">Gestión de Clientes</h2>
+		<div class="d-flex justify-content-end mb-3">
+			<a href="/usuarios/nuevoCliente" class="btn btn-primary">Registrar Cliente</a>
+		</div>
+		<div class="card shadow-sm">
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover text-center">
+						<thead class="thead-dark">
+							<tr>
+								<th>#</th>
+								<th>Nombre</th>
+								<th>Email</th>
+								<th>Teléfono</th>
+								<th>Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="cliente, iterStat : ${clientes}">
+								<td th:text="${iterStat.count}">1</td>
+								<td th:text="${cliente.nombre}">Nombre</td>
+								<td th:text="${cliente.email}">Email</td>
+								<td th:text="${cliente.telefono}">Teléfono</td>
+								<td>
+									<a th:href="@{/usuarios/editarCliente/{id}(id=${cliente.id})}"
+										class="btn btn-warning btn-sm">Editar</a>
+									<a th:href="@{/usuarios/eliminarCliente/{id}(id=${cliente.id})}"
+										class="btn btn-danger btn-sm"
+										onclick="return confirmarEliminacion('[[${cliente.nombre}]]');">Eliminar</a>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>Ejemplo Cliente</td>
+								<td>cliente@ejemplo.com</td>
+								<td>1234567890</td>
+								<td>
+									<a href="#" class="btn btn-warning btn-sm">Editar</a>
+									<a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-3">
+		<p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+		<ul class="list-inline">
+			<li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+			<li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+		</ul>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

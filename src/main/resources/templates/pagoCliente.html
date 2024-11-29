@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pago del Pedido</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/pagoCliente.css">
+
+</head>
+
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg custom-navbar">
+	<a class="navbar-brand" href="/login/inicioCliente">
+		<img src="/images/2.png" alt="FoodFlex Logo" height="80">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+		aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item"><a class="nav-link" href="/login/inicioCliente">Inicio Cliente</a></li>
+			<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+			<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+		</ul>
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item"><a class="nav-link" href="/login/cerrarSesion">Cerrar Sesión</a></li>
+		</ul>
+	</div>
+</nav>
+
+<body>
+	<div class="page-container d-flex flex-column min-vh-100">
+		<!-- Contenido Principal -->
+		<div class="container my-4 flex-grow-1">
+			<h2 class="text-center mb-4">Procesar Pago del Pedido</h2>
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<div class="card shadow-sm">
+						<div class="card-body">
+							<h4 class="card-title text-center">Detalles del Pedido</h4>
+							<p><strong>Cliente:</strong> <span th:text="${nombreCliente}"></span></p>
+							<p><strong>Total a Pagar:</strong> $<span th:text="${total}"></span></p>
+							<form action="/pedidos/procesar" method="POST">
+								<input type="hidden" name="clienteId" th:value="${clienteId}">
+								<input type="hidden" name="nombreCliente" th:value="${nombreCliente}">
+								<input type="hidden" name="total" th:value="${total}">
+								<div class="form-group">
+									<label for="metodoPago">Método de Pago</label>
+									<select id="metodoPago" class="form-control" required>
+										<option value="">Seleccione una opción</option>
+										<option value="credito">Tarjeta de Crédito</option>
+										<option value="debito">Tarjeta de Débito</option>
+									</select>
+								</div>
+								<div id="datosTarjeta" style="display: none;">
+									<div class="form-group">
+										<label for="numeroTarjeta">Número de Tarjeta</label>
+										<input type="text" id="numeroTarjeta" class="form-control" maxlength="16"
+											placeholder="Ingrese su número de tarjeta">
+									</div>
+									<div class="form-group">
+										<label for="nombreTarjeta">Nombre en la Tarjeta</label>
+										<input type="text" id="nombreTarjeta" class="form-control"
+											placeholder="Ingrese el nombre como aparece en la tarjeta">
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="expiracionTarjeta">Fecha de Expiración</label>
+											<input type="text" id="expiracionTarjeta" class="form-control"
+												placeholder="MM/AA">
+										</div>
+										<div class="form-group col-md-6">
+											<label for="cvvTarjeta">CVV</label>
+											<input type="text" id="cvvTarjeta" class="form-control" maxlength="3"
+												placeholder="123">
+										</div>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-success btn-lg btn-block">Confirmar Pago</button>
+							</form>
+						</div>
+					</div>
+					<div class="text-center mt-4">
+						<a href="/carrito" class="btn btn-secondary btn-lg">Regresar al Carrito</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer -->
+		<footer class="footer bg-dark text-white text-center py-3">
+			<p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+			<ul class="list-inline">
+				<li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+				<li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+			</ul>
+		</footer>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+		// Mostrar campos de tarjeta según la selección
+		document.getElementById('metodoPago').addEventListener('change', function () {
+			const datosTarjeta = document.getElementById('datosTarjeta');
+			datosTarjeta.style.display = (this.value === 'credito' || this.value === 'debito') ? 'block' : 'none';
+		});
+	</script>
+</body>
+
+
+</html>

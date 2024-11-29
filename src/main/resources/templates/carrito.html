@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mi Carrito</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/carrito.css">
+	<link rel="stylesheet" href="/js/carrito.js">
+
+</head>
+
+<body>
+	<!-- Barra de navegación -->
+	<nav class="navbar navbar-expand-lg custom-navbar">
+		<a class="navbar-brand" href="/login/inicioCliente">
+			<img src="/images/2.png" alt="FoodFlex Logo" height="80">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/login/inicioCliente">Inicio Cliente</a></li>
+				<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+				<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link" href="/carrito">Carrito</a></li>
+				<li class="nav-item"><a class="nav-link" href="/login/cerrarSesion">Cerrar Sesión</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Contenido del carrito -->
+	<div class="container my-5">
+		<h2 class="text-center mb-4">Mi Carrito</h2>
+
+		<!-- Información del cliente -->
+		<div class="card shadow-sm mb-4">
+			<div class="card-body text-center">
+				<h5><strong>Cliente:</strong> <span th:text="${carrito.nombreCliente}"></span></h5>				
+			</div>
+		</div>
+
+		<!-- Lista de pedidos -->
+		<div th:if="${carrito.pedido != null}">
+			<div class="row justify-content-center">
+				<div th:each="comida : ${comidas}" class="col-md-4 mb-4">
+					<div class="card shadow-sm h-100">
+						<img th:src="${comida.imagenUrl}" class="card-img-top" th:alt="${comida.nombre}">
+						<div class="card-body text-center">
+							<h5 class="card-title" th:text="${comida.nombre}"></h5>
+							<p class="card-text" th:text="${comida.descripcion}"></p>
+							<p><strong>Precio:</strong> $<span class="precio" th:text="${comida.precio}"></span></p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center mt-4">
+				<h4>Total: $<span id="total">0</span></h4>
+				<form action="/pedidos/pagoCliente" method="GET">
+					<input type="hidden" name="clienteId" th:value="${carrito.clienteId}">
+					<input type="hidden" name="nombreCliente" th:value="${carrito.nombreCliente}">
+					<input type="hidden" name="total" id="totalPedido" value="">
+					<button type="submit" class="btn btn-primary btn-lg">Ir a Pagar</button>
+				</form>
+			</div>
+
+			<!-- Mensaje si el carrito está vacío -->
+			<div th:if="${carrito.pedido == null}" class="text-center">
+				<h4>Tu carrito está vacío</h4>
+				<a href="/catalogo" class="btn btn-outline-primary mt-3">Ver Catálogo</a>
+			</div>
+		</div>
+</div>
+
+		<!-- Footer -->
+		<footer class="footer bg-dark text-white text-center py-3 fixed-bottom">
+		    <p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+		    <ul class="list-inline mb-0">
+		        <li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+		        <li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+		    </ul>
+		</footer>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="/js/carrito.js"></script>
+</div>
+</body>
+
+</html>

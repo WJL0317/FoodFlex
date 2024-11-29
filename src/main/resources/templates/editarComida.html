@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Editar Comida</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/registrarAdmin.css">
+</head>
+
+<body>
+	<!-- Barra de navegación -->
+	<nav class="navbar navbar-expand-lg custom-navbar">
+		<a class="navbar-brand" href="/login/inicioAdmin">
+			<img src="/images/2.png" alt="FoodFlex Logo" height="70">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+				<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link btn btn-danger text-white" href="/login/cerrarSesion">Cerrar
+						Sesión</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Contenido principal -->
+	<main class="my-5">
+		<div class="card shadow">
+			<div class="card-header text-center bg-primary text-white">
+				<h2>Editar Comida</h2>
+			</div>
+			<div class="card-body">
+				<form method="POST" th:action="@{/comidas/editar/{id}(id=${comida.id})}">
+					<div class="form-group">
+						<label for="nombre">Nombre</label>
+						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la comida"
+							th:value="${comida.nombre}" required>
+					</div>
+					<div class="form-group">
+						<label for="descripcion">Descripción</label>
+						<textarea class="form-control" id="descripcion" name="descripcion" rows="3"
+							placeholder="Descripción de la comida" th:text="${comida.descripcion}" required></textarea>
+					</div>
+					<div class="form-group">
+						<label for="precio">Precio</label>
+						<input type="number" step="0.01" class="form-control" id="precio" name="precio"
+							placeholder="Precio de la comida" th:value="${comida.precio}" required>
+					</div>
+					<div class="form-group">
+						<label for="restauranteNombre">Restaurante</label>
+						<input type="text" class="form-control" id="restauranteNombre" name="restauranteNombre"
+							placeholder="Nombre del restaurante" th:value="${comida.restauranteNombre}" required>
+					</div>
+					<div class="form-group">
+						<label for="categoriaNombre">Categoría</label>
+						<input type="text" class="form-control" id="categoriaNombre" name="categoriaNombre"
+							placeholder="Categoría de la comida" th:value="${comida.categoriaNombre}" required>
+					</div>
+					<div class="form-group">
+						<label for="imagenUrl">URL de la Imagen</label>
+						<input type="url" class="form-control" id="imagenUrl" name="imagenUrl"
+							placeholder="URL de la imagen" th:value="${comida.imagenUrl}" required>
+					</div>
+					<button type="submit" class="btn btn-primary btn-block">Guardar Cambios</button>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-3">
+		<p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+		<ul class="list-inline">
+			<li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+			<li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+		</ul>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

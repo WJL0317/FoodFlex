@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registro</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+	<!-- Barra de navegación -->
+	<nav class="navbar navbar-expand-lg custom-navbar">
+		<a class="navbar-brand" href="/">
+			<img src="/images/2.png" alt="FoodFlex Logo" height="70">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+				<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+				<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Contenido principal -->
+	<div class="container my-5">
+		<div class="row">
+			<!-- Registro de Usuario -->
+			<div class="col-md-6 offset-md-3">
+				<div class="card shadow p-4">
+					<h4 class="card-title text-center">Registro de Usuario</h4>
+					<form method="POST" action="/usuarios">
+						<div class="form-group">
+							<label for="nombreUsuario">Nombre</label>
+							<input type="text" class="form-control" id="nombreUsuario" name="nombre"
+								placeholder="Ingresa tu nombre" required>
+						</div>
+						<div class="form-group">
+							<label for="emailUsuario">Correo Electrónico</label>
+							<input type="email" class="form-control" id="emailUsuario" name="email"
+								placeholder="Ingresa tu correo" required>
+						</div>
+						<div class="form-group">
+							<label for="telefonoUsuario">Teléfono</label>
+							<input type="text" class="form-control" id="telefonoUsuario" name="telefono"
+								placeholder="Ingresa tu teléfono" required>
+						</div>
+						<div class="form-group">
+							<label for="rolUsuario">Rol</label>
+							<select class="form-control" id="rolUsuario" name="rol" required>
+								<option value="CLIENTE">Cliente</option>
+								<option value="ADMIN">Administrador</option>
+								<option value="Restaurante">Restaurante</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="usuarioUsuario">Usuario</label>
+							<input type="text" class="form-control" id="usuarioUsuario" name="usuario"
+								placeholder="Crea tu usuario" required>
+						</div>
+						<div class="form-group">
+							<label for="contrasenaUsuario">Contraseña</label>
+							<input type="password" class="form-control" id="contrasenaUsuario" name="contrasena"
+								placeholder="Crea tu contraseña" required>
+						</div>
+						<button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal de Confirmación -->
+	<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="confirmationModalLabel">Registro Exitoso</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="confirmationMessage">
+					<!-- El mensaje se cargará dinámicamente -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="redirectToLogin">Ir al Login</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal para Registro de Restaurante -->
+	<div class="modal fade" id="modalRestaurante" tabindex="-1" aria-labelledby="modalRestauranteLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalRestauranteLabel">Registro de Restaurante</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form method="POST" action="/restaurantes">
+						<div class="form-group">
+							<label for="nombreRestaurante">Nombre del Restaurante</label>
+							<input type="text" class="form-control" id="nombreRestaurante" name="nombre"
+								placeholder="Ingresa el nombre del restaurante" required>
+						</div>
+						<div class="form-group">
+							<label for="direccionRestaurante">Dirección</label>
+							<input type="text" class="form-control" id="direccionRestaurante" name="direccion"
+								placeholder="Ingresa la dirección" required>
+						</div>
+						<div class="form-group">
+							<label for="telefonoRestaurante">Teléfono</label>
+							<input type="text" class="form-control" id="telefonoRestaurante" name="telefono"
+								placeholder="Ingresa el teléfono" required>
+						</div>
+						<div class="form-group">
+							<label for="emailRestaurante">Correo Electrónico</label>
+							<input type="email" class="form-control" id="emailRestaurante" name="email"
+								placeholder="Ingresa el correo" required>
+						</div>
+						<div class="form-group">
+							<label for="descripcionRestaurante">Descripción</label>
+							<textarea class="form-control" id="descripcionRestaurante" name="descripcion" rows="3"
+								placeholder="Describe tu restaurante" required></textarea>
+						</div>
+						<div class="form-group">
+							<label for="usuarioRestaurante">Usuario</label>
+							<input type="text" class="form-control" id="usuarioRestaurante" name="usuario"
+								placeholder="Crea tu usuario" required>
+						</div>
+						<div class="form-group">
+							<label for="contrasenaRestaurante">Contraseña</label>
+							<input type="password" class="form-control" id="contrasenaRestaurante" name="contrasena"
+								placeholder="Crea tu contraseña" required>
+						</div>
+						<button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-3">
+		<p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+		<ul class="list-inline">
+			<li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+			<li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+			<li class="list-inline-item"><a href="/login" class="text-white">Login</a></li>
+		</ul>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+		document.getElementById('rolUsuario').addEventListener('change', function () {
+			if (this.value === 'Restaurante') {
+				$('#modalRestaurante').modal('show');
+			}
+		});
+
+		document.querySelector("form").addEventListener("submit", function (event) {
+			event.preventDefault();
+
+			const data = {
+				nombre: document.getElementById("nombreUsuario").value,
+				email: document.getElementById("emailUsuario").value,
+				telefono: document.getElementById("telefonoUsuario").value,
+				rol: document.getElementById("rolUsuario").value,
+				usuario: document.getElementById("usuarioUsuario").value,
+				contrasena: document.getElementById("contrasenaUsuario").value
+			};
+
+			fetch("/api/registro/usuario", {
+				method: "POST",
+				headers: {"Content-Type": "application/json"},
+				body: JSON.stringify(data)
+			})
+				.then(response => {
+					if (!response.ok) {
+						throw new Error("Error al registrar el usuario");
+					}
+					return response.text(); // Obtener el mensaje del backend
+				})
+				.then(mensaje => {
+					// Muestra el modal con el mensaje
+					document.getElementById("confirmationMessage").innerText = mensaje;
+					$("#confirmationModal").modal("show"); // Mostrar el modal
+				})
+				.catch(error => {
+					console.error("Error:", error);
+					alert("Hubo un error al registrar el usuario.");
+				});
+		});
+
+		// Redirige al login cuando se haga clic en el botón del modal
+		document.getElementById("redirectToLogin").addEventListener("click", function () {
+			window.location.href = "/login";
+		});
+	</script>
+</body>
+
+</html>

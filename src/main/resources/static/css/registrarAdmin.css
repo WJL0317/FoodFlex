@@ -1,0 +1,51 @@
+ body {
+ 	display: flex;
+ 	flex-direction: column;
+ 	min-height: 100vh;
+ }
+
+ main {
+ 	flex: 1;
+ }
+
+ .card {
+ 	max-width: 600px;
+ 	margin: auto;
+ 	border-radius: 15px;
+ 	/* Bordes redondeados */
+ 	overflow: hidden;
+ 	/* Para que los bordes redondeados afecten el contenido */
+ }
+
+ .card-header {
+ 	border-top-left-radius: 15px;
+ 	/* Bordes redondeados en el header */
+ 	border-top-right-radius: 15px;
+ }
+
+ label {
+ 	display: block;
+ 	/* Asegura que el label esté en su propia línea */
+ 	text-align: left;
+ 	/* Alinea el texto del label a la izquierda */
+ 	font-weight: bold;
+ }
+
+ footer {
+ 	background-color: #343a40;
+ 	color: white;
+ 	padding: 20px 0;
+ }
+
+ footer p {
+ 	margin: 0;
+ }
+
+ footer .list-inline-item a {
+ 	color: white;
+ 	text-decoration: none;
+ }
+
+ footer .list-inline-item a:hover {
+ 	text-decoration: underline;
+ }

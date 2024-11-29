@@ -1,0 +1,29 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main.flex-fill {
+    flex: 1;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer .list-inline-item a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .list-inline-item a:hover {
+    text-decoration: underline;
+}

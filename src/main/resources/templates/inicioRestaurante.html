@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Panel de Restaurante</title>
+	<!-- Enlace a Bootstrap CSS -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/inicioRestaurante.css">
+	<style>
+				html, body {
+				    height: 100%;
+				    margin: 0;
+				    display: flex;
+				    flex-direction: column;
+				}
+
+				.container {
+				    flex: 1;
+				}
+
+				footer {
+				    margin-top: auto;
+				}
+
+			</style>
+</head>
+
+<body>
+	<!-- Barra de navegación -->
+	<nav class="navbar navbar-expand-lg custom-navbar">
+		<a class="navbar-brand" href="/login/inicioRestaurante">
+			<img src="/images/2.png" alt="FoodFlex Logo" height="70">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/login/inicioRestaurante">Inicio</a></li>
+				<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+				<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link" href="/login/cerrarSesion">Cerrar Sesión</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Contenido principal -->
+	<div class="container my-5">
+		<h2 class="text-center mb-4">Panel de Restaurante</h2>
+
+		<div class="row">
+			<!-- Editar información del restaurante -->
+			<div class="col-md-4">
+				<div class="card shadow-sm mb-4">
+					<div class="card-body text-center">
+						<h5 class="card-title">Editar Información</h5>
+						<p class="card-text">Editar la información del restaurante registrado.</p>
+						<a href="/restaurantes/editar" class="btn btn-primary">Editar</a>
+					</div>
+				</div>
+			</div>
+			<!-- Gestionar comidas -->
+			<div class="col-md-4">
+				<div class="card shadow-sm mb-4">
+					<div class="card-body text-center">
+						<h5 class="card-title">Gestionar Comidas</h5>
+						<p class="card-text">Añadir, editar o eliminar comidas del menú.</p>
+						<a href="/comidas" class="btn btn-primary">Gestionar</a>
+					</div>
+				</div>
+			</div>
+			<!-- Supervisar y gestionar pedidos -->
+			<div class="col-md-4">
+				<div class="card shadow-sm mb-4">
+					<div class="card-body text-center">
+						<h5 class="card-title">Gestionar Pedidos</h5>
+						<p class="card-text">Supervisar y gestionar los pedidos asignados al restaurante.</p>
+						<a href="/pedidos/pedidosRestaurante" class="btn btn-primary">Supervisar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-3">
+		<p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+		<ul class="list-inline">
+			<li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+			<li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+		</ul>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
