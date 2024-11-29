@@ -1,0 +1,140 @@
+/* Estilo general */
+body {
+    background: rgb(240, 240, 240);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* Estructura de la página */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    flex: 1; /* Ocupa todo el espacio restante */
+}
+
+
+/* Estilos personalizados para la barra de navegación */
+.custom-navbar {
+    background: linear-gradient(to right, rgb(255, 180, 164), rgb(255, 134, 102)); /* Degradado hacia la derecha */
+    font-size: 18px; /* Tamaño de fuente aumentado */
+}
+
+.custom-navbar .navbar-brand {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/* Banner */
+.banner {
+    background: linear-gradient(to right, rgb(255, 180, 164), rgb(255, 134, 102)); /* Degradado hacia la derecha */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+
+.text-container {
+    text-align: center;
+    color: white;
+    margin-right: 20px;
+}
+
+.text-container h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.text-container p {
+    font-size: 1.5rem;
+}
+
+.image-container img {
+    max-height: 200px;
+    border-radius: 15px;
+}
+
+/* Barra de búsqueda */
+#searchInput {
+    border-radius: 25px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding-left: 20px; /* Espaciado interno a la izquierda */
+}
+
+
+/* Catálogo de comidas */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 20px; /* Esquinas más redondeadas para la tarjeta */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 20px; /* Esquina superior izquierda de la imagen */
+    border-top-right-radius: 20px; /* Esquina superior derecha de la imagen */
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+    font-size: 0.9rem;
+    text-align: center;
+    border-bottom-left-radius: 20px; /* Esquina inferior izquierda del pie de tarjeta */
+    border-bottom-right-radius: 20px; /* Esquina inferior derecha del pie de tarjeta */
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer .list-inline-item a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .list-inline-item a:hover {
+    text-decoration: underline;
+}
+

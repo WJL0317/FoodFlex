@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FoodFlex</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/js/script.js">
+</head>
+
+<body>
+	<div class="page-container">
+		<!-- Barra de navegación -->
+		<nav class="navbar navbar-expand-lg custom-navbar">
+			<a class="navbar-brand" href="/">
+				<img src="/images/2.png" alt="FoodFlex Logo" height="80">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+					<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="/carrito">Carrito</a></li>
+					<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<!-- Banner -->
+		<div class="container-fluid p-0">
+			<div class="banner d-flex justify-content-center align-items-center"
+				style="background-color: rgb(255, 180, 164); padding: 30px; height: auto;">
+				<!-- Contenedor del texto -->
+				<div class="text-container text-white" style="flex: 0 0 auto; text-align: center; margin-right: 20px;">
+					<h1 class="display-4 font-weight-bold" style="font-size: 3rem; margin-bottom: 20px;">¡ABIERTOS PARA
+						SERVIRTE!</h1>
+					<p class="lead" style="font-size: 1.5rem;">Solo para llevar o a domicilio</p>
+				</div>
+				<!-- Contenedor de la imagen -->
+				<div class="image-container" style="flex: 0 0 auto; text-align: center;">
+					<img src="/images/1.png" alt="Banner FoodFlex" class="img-fluid rounded"
+						style="max-height: 200px; border-radius: 15px;">
+				</div>
+			</div>
+		</div>
+
+		<!-- Barra de búsqueda -->
+		<div class="container my-4">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="input-group">
+						<input type="text" id="searchInput" class="form-control"
+							placeholder="Buscar comidas por nombre o descripción...">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Catálogo de comidas -->
+		<div class="container">
+			<div class="row">
+				<div th:each="comida : ${comidas}" class="col-md-3 mb-3 food-card">
+					<div class="card h-100">
+						<img th:src="${comida.imagenUrl}" class="card-img-top" th:alt="${comida.nombre}">
+						<div class="card-body">
+							<h5 class="card-title" th:text="${comida.nombre}"></h5>
+							<p class="card-text" th:text="${comida.descripcion}"></p>
+							<p class="card-text"><strong>Restaurante:</strong> <span
+									th:text="${comida.restauranteNombre}"></span></p>
+						</div>
+						<div class="card-footer">
+							<p class="card-text"><strong>Precio:</strong> $<span th:text="${comida.precio}"></span></p>
+							<p class="card-text"><strong>Categoría:</strong> <span
+									th:text="${comida.categoriaNombre}"></span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Footer -->
+		<footer class="bg-dark text-white text-center py-3">
+			<p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+			<ul class="list-inline">
+				<li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+				<li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+				<li class="list-inline-item"><a href="/login" class="text-white">Login</a></li>
+			</ul>
+		</footer>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="/js/script.js"></script>
+		<script>
+		    function añadirAlCarrito(button) {
+		        // Extraer datos del botón
+		        const comida = {
+		            id: button.getAttribute('data-id'),
+		            nombre: button.getAttribute('data-nombre'),
+		            descripcion: button.getAttribute('data-descripcion'),
+		            precio: parseFloat(button.getAttribute('data-precio')),
+		            imagen: button.getAttribute('data-imagen'),
+		            restaurante: button.getAttribute('data-restaurante')
+		        };
+
+		        // Obtener el carrito del localStorage o inicializarlo
+		        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+		        // Verificar si el producto ya está en el carrito
+		        const existe = carrito.find(item => item.id === comida.id);
+		        if (existe) {
+		            alert('El producto ya está en el carrito');
+		            return;
+		        }
+
+		        // Agregar la comida al carrito
+		        carrito.push(comida);
+
+		        // Guardar el carrito actualizado en localStorage
+		        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+		        alert('Producto añadido al carrito');
+		    }
+		</script>
+
+</body>
+
+</html>

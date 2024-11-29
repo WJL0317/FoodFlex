@@ -1,0 +1,37 @@
+/* Asegura que la página ocupe toda la altura */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajusta el contenedor principal */
+.container.my-5 {
+    margin-bottom: 100px; /* Espacio adicional para que el botón no quede oculto */
+}
+
+/* Asegura que el footer no se superponga */
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: relative; /* Mantiene el flujo del documento */
+    margin-top: auto;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer .list-inline-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer .list-inline-item a:hover {
+    text-decoration: underline;
+}

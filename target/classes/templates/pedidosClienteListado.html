@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mis Pedidos</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+	<style>
+			html, body {
+			    height: 100%;
+			    margin: 0;
+			    display: flex;
+			    flex-direction: column;
+			}
+
+			.container {
+			    flex: 1;
+			}
+
+			footer {
+			    margin-top: auto;
+			}
+
+		</style>
+</head>
+
+<body>
+	<!-- Barra de navegación -->
+	<nav class="navbar navbar-expand-lg custom-navbar">
+		<a class="navbar-brand" href="/login/inicioCliente">
+			<img src="/images/2.png" alt="FoodFlex Logo" height="80">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/login/inicioCliente">Inicio Cliente</a></li>
+				<li class="nav-item"><a class="nav-link" href="/acerca">Acerca de</a></li>
+				<li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link" href="/carrito">Carrito</a></li>
+				<li class="nav-item"><a class="nav-link" href="/login/cerrarSesion">Cerrar Sesión</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Contenido principal -->
+	<div class="container my-5">
+		<h2 class="text-center mb-4">Pedidos Realizados</h2>
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th>ID Pedido</th>
+						<th>Restaurante</th>
+						<th>Estado</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="pedido : ${pedidos}">
+						<td th:text="${pedido.id}"></td>
+						<td th:text="${pedido.nombreRestaurante}"></td>
+						<td>
+							<span
+								th:classappend="'badge badge-' + (${pedido.estado} == 'PENDIENTE' ? 'warning' : (${pedido.estado} == 'ENTREGADO' ? 'success' : 'danger'))"
+								th:text="${pedido.estado}"></span>
+						</td>
+						<td th:text="${pedido.total}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="bg-dark text-white text-center py-3">
+		<p>&copy; 2024 Restaurante FoodFlex. Todos los derechos reservados.</p>
+		<ul class="list-inline">
+			<li class="list-inline-item"><a href="/acerca" class="text-white">Acerca de</a></li>
+			<li class="list-inline-item"><a href="/nosotros" class="text-white">Nosotros</a></li>
+		</ul>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

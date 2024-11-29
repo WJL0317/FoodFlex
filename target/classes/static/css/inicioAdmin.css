@@ -1,0 +1,26 @@
+/* Asegurar que el body ocupe toda la altura de la ventana */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor principal para el contenido */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer ajustado */
+footer {
+    background-color: #343a40; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    padding: 1rem 0; /* Espaciado interno */
+    text-align: center;
+    width: 100%; /* Rellenar horizontalmente */
+    position: fixed; /* Fijar en la parte inferior */
+    bottom: 0; /* Asegurar posición */
+    left: 0; /* Anclar al lado izquierdo */
+}

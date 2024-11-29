@@ -1,0 +1,51 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+
+/* Configuración del contenedor principal */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el contenedor principal ocupe al menos la altura completa */
+}
+
+/* Contenido principal expandible */
+.container.my-4 {
+    margin-top: 0.5rem; /* Reduce espacio superior */
+    margin-bottom: 0;   /* Elimina margen inferior */
+}
+.text-center.mt-4 {
+    margin-top: 0.5rem; /* Reduce espacio superior */
+    margin-bottom: 0;   /* Elimina margen inferior */
+}
+
+.container.my-4 {
+    flex-grow: 1;
+    margin-top: 0.5rem; /* Reduce espacio superior */
+    margin-bottom: 0;   /* Elimina margen inferior */
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0; /* Ajusta el padding */
+    margin-top: 0;   /* Elimina margen extra */
+}
+
+
+.footer p {
+    margin: 0;
+}
+
+.footer .list-inline-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer .list-inline-item a:hover {
+    text-decoration: underline;
+}
+
